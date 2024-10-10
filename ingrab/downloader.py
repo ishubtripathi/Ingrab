@@ -6,9 +6,18 @@ import sys
 import re
 import webbrowser  # Import webbrowser module
 
+# ANSI escape codes for text formatting (bold, underline, and colors)
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+RESET = '\033[0m'
+RED = '\033[91m'
+GREEN = '\033[92m'
+CYAN = '\033[96m'
+GREY = '\033[37m'
+
 def loading_animation():
     """Displays a loading animation."""
-    print("Loading", end="")
+    print(BOLD + "Loading" + RESET, end="")
     for _ in range(3):
         print(".", end="")
         sys.stdout.flush()
@@ -50,9 +59,9 @@ def download_posts(profile_url, recent_count=None):
                 break
 
     if count == 0:
-        print(f"No images found for {profile_name}.")
+        print(BOLD + f"No images found for {profile_name}." + RESET)
     else:
-        print(f"{count} images downloaded successfully.")
+        print(BOLD + f"{count} images downloaded successfully." + RESET)
 
 def download_videos(profile_url, recent_count=None):
     loader = instaloader.Instaloader()
@@ -84,9 +93,9 @@ def download_videos(profile_url, recent_count=None):
                 break
 
     if count == 0:
-        print(f"No reels found for {profile_name}.")
+        print(BOLD + f"No reels found for {profile_name}." + RESET)
     else:
-        print(f"{count} reels downloaded successfully.")
+        print(BOLD + f"{count} reels downloaded successfully." + RESET)
 
 def download_all(profile_url, recent_count=None):
     download_posts(profile_url, recent_count)
@@ -94,7 +103,7 @@ def download_all(profile_url, recent_count=None):
 
 def report_bug():
     """Allows the user to report a bug via Gmail."""
-    bug_details = input("Please describe the bug you encountered: ")
+    bug_details = input(BOLD + "Please describe the bug you encountered: " + RESET)
     subject = "Bug Report from Ingrab"
     body = f"Bug Details: {bug_details}"
     
@@ -102,41 +111,61 @@ def report_bug():
     gmail_link = f"https://mail.google.com/mail/?view=cm&fs=1&to=ishubtripathi@gmail.com&su={subject}&body={body}"
     
     webbrowser.open(gmail_link) 
-    print("Thank you for reporting a bug. \nYour report has been submitted successfully!")
+    print(BOLD + "Thank you for reporting a bug. \nYour report has been submitted successfully!" + RESET)
+
+def show_details():
+    """Displays project details and developer information."""
+    print("\n" + BOLD + "\033[91m--- What is INGRAB? ---\033[0m" + RESET)  # Title in red
+
+    # Project description
+    print("Ingrab is a user-friendly application designed for downloading posts and reels from Instagram user profiles,")
+    print("With a simple interface, users can easily access their favorite media content without hassle.")
+
+    # Developer information
+    print("\033[92m" +  "DEVELOPER: SHUBH TRIPATHI" + RESET + "\033[0m")  # Developer name in green
+    print("\033[92m" +  "LINKEDIN PROFILE: https://www.linkedin.com/in/ishubtripathi/" + RESET + "\033[0m") 
+
+    # Additional details
+    print("\033[96m" + BOLD + "Version: 1.0.1" + RESET + "\033[0m")  # Version in cyan
+    print("\033[96m" + BOLD + "Features:" + RESET + "\033[0m")
+    print("- Download posts and reels from Instagram profiles.")
+    print("- Download recent media posts with a single click.")
+    print("- Easy navigation and usage for all users.")
+
+    print("\033[90m" + "------------------------\n" + RESET)  # Separator in dark gray
 
 
 def main():
-    print("\nWelcome to Ingrab!")
+    print(RED + BOLD + "\n✌ --- WELCOME TO INGRAB ---✌" + RESET) 
     
     while True:
-        print("\nOptions:")
-        print("1 - User Ingrab")
-        print("2 - Help")
-        print("3 - Developer")
-        print("4 - Version")
-        print("5 - Report Bug")
-        print("6 - Exit")
+        print("\n" + GREY + BOLD + "--- Main Menu ---" + RESET)
+        print("1 - USE INGRAB")
+        print("2 - DETAILS")
+        print("3 - VERSION")
+        print("4 - REPORT BUG")
+        print((RED + "5 - EXIT"))
 
         try:
-            option = int(input("Choose an option : "))
+            option = int(input(GREEN + BOLD + "Choose an option: " + RESET))  # Change prompt to green
             
             if option == 1:
-                profile_url = input("Enter the Instagram profile URL: ")
+                profile_url = input(BOLD + "Enter the Instagram profile URL: " + RESET)
                 # Validate the Instagram URL
                 if not is_valid_instagram_url(profile_url):
-                    print("Error: Please enter a valid Instagram profile URL.")
+                    print(BOLD + "Error: Please enter a valid Instagram profile URL." + RESET)
                     continue  # Go back to the main menu
                 
-                print("Options:")
-                print("1 - Download all images")
-                print("2 - Download all videos (reels)")
-                print("3 - Download both images and videos (reels)")
-                print("4 - Download the recent 5 images")
-                print("5 - Download the recent 5 videos (reels)")
-                print("6 - Download the recent 5 images and videos (reels)")
+                print("\n" + GREY + BOLD + "--- Download Options ---" + RESET)
+                print("1 - All posts")
+                print("2 - All reels")
+                print("3 - All posts and reels")
+                print("4 - Recent 5 posts")
+                print("5 - Recent 5 reels")
+                print("6 - Recent 5 posts and reels")
                 
                 try:
-                    download_option = int(input("Choose an option for downloading: "))
+                    download_option = int(input(GREEN + BOLD + "Choose an option for downloading: " + RESET))
                     if download_option == 1:
                         download_posts(profile_url)
                     elif download_option == 2:
@@ -150,32 +179,28 @@ def main():
                     elif download_option == 6:
                         download_all(profile_url, recent_count=5)
                     else:
-                        print("Invalid option. Please choose a number between 1 and 6.")
+                        print(BOLD + "Invalid option. Please choose a number between 1 and 6." + RESET)
                 except ValueError:
-                    print("Error: Please enter a valid number for the option.")
+                    print(BOLD + "Error: Please enter a valid number for the option." + RESET)
 
             elif option == 2:
-                print("Help: This application allows you to download images and videos from Instagram profiles.")
-                print("Enter the profile URL and choose the type of media to download.")
-            
+                show_details()  # Show project details
+
             elif option == 3:
-                print("Developer: Your Name - [Your Contact Information or Website]")
+                print(BOLD + "Version: 1.0.1" + RESET)
 
             elif option == 4:
-                print("Version: 1.0.1")
-
-            elif option == 5:
                 report_bug()  # Call the bug reporting function
 
-            elif option == 6:
-                print("Exiting the application.")
+            elif option == 5:
+                print(BOLD + "Thank you for using Ingrab! ❤︎" + RESET)
                 break  # Exit the loop and the program
             
             else:
-                print("Invalid option. Please choose a number between 1 and 6.")
+                print(BOLD + "Invalid option. Please choose a number between 1 and 5." + RESET)
 
         except ValueError:
-            print("Error: Please enter a valid number for the option.")
+            print(BOLD + "Error: Please enter a valid number for the option." + RESET)
 
 if __name__ == "__main__":
     main()
