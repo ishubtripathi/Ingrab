@@ -6,6 +6,5 @@ ingrab/downloader.py
 ingrab.egg-info/PKG-INFO
 ingrab.egg-info/SOURCES.txt
 ingrab.egg-info/dependency_links.txt
-ingrab.egg-info/entry_points.txt
 ingrab.egg-info/requires.txt
 ingrab.egg-info/top_level.txt
