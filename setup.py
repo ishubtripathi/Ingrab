@@ -1,13 +1,8 @@
 from setuptools import setup, find_packages
 
-version = {}
-with open("version.py") as fp:
-    exec(fp.read(), version)
-
-
 setup(
     name='ingrab',
-    version=version['__version__'],
+    version='1.2.5',
     packages=find_packages(),
     install_requires=[
         'instaloader',
