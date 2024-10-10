@@ -1,0 +1,2 @@
+[console_scripts]
+ingrab-downloader = ingrab.downloader:main
