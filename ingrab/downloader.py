@@ -117,7 +117,7 @@ def show_details():
     print("DEVELOPER: SHUBH TRIPATHI")
     print("LINKEDIN PROFILE: https://www.linkedin.com/in/ishubtripathi/")
 
-    print("\nVersion: 1.2.5")
+    print("\nVersion: 1.2.6")
     print("\nFeatures:")
     print("- Download posts and reels from Instagram profiles.")
     print("- Download recent media posts with a single click.")
@@ -178,7 +178,7 @@ def main():
                 show_details()
 
             elif option == 3:
-                print("Version: 1.2.5")
+                print("Version: 1.2.6")
 
             elif option == 4:
                 report_bug()

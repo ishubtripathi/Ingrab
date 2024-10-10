@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ingrab',
-    version='1.2.5',
+    version='1.2.7',
     packages=find_packages(),
     install_requires=[
         'instaloader',
@@ -21,7 +21,7 @@ setup(
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3',
     entry_points={
         'console_scripts': [
             'ingrab=ingrab.downloader:main', 

@@ -62,7 +62,7 @@ pip install instaloader
 
 ## Versioning
 
-Ingrab follows [Semantic Versioning](https://semver.org/). The current version is `1.2.4`.
+Ingrab follows [Semantic Versioning](https://semver.org/). The current version is `1.2.6`.
 
 ## Reporting Bugs
 
