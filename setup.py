@@ -1,11 +1,16 @@
 from setuptools import setup, find_packages
 
+version = {}
+with open("version.py") as fp:
+    exec(fp.read(), version)
+
+
 setup(
     name='ingrab',
-    version='1.1.4',
+    version=version['__version__'],
     packages=find_packages(),
     install_requires=[
-        'instaloader', 
+        'instaloader',
     ],
     author='Shubh Tripathi',
     author_email='bugingrab@gmail.com',

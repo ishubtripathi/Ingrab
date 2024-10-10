@@ -5,6 +5,7 @@ import time
 import sys
 import re
 import webbrowser  # Import webbrowser module
+from version import __version__ 
 
 def loading_animation():
     """Displays a loading animation."""
@@ -90,7 +91,7 @@ def download_videos(profile_url, recent_count=None):
     if count == 0:
         print(f"No reels found for {profile_name}.")
     else:
-        print(f"{count} reels downloaded successfully.")
+        print(f"{count} \nreels downloaded successfully.")
 
 def download_all(profile_url, recent_count=None):
     download_posts(profile_url, recent_count)
@@ -112,16 +113,16 @@ def show_details():
     print("\n--- What is INGRAB? ---")
 
     print("Ingrab is a user-friendly application designed for downloading posts and reels from Instagram user profiles.")
-    print("With a simple interface, users can easily access their favorite media content without hassle.")
+    print("With a simple interface, users can easily access their favorite media content without hassle.\n")
 
     print("DEVELOPER: SHUBH TRIPATHI")
     print("LINKEDIN PROFILE: https://www.linkedin.com/in/ishubtripathi/")
 
-    print("Version: 1.1.4")
-    print("Features:")
+    print(f"Version: {__version__}")
+    print("\nFeatures:")
     print("- Download posts and reels from Instagram profiles.")
     print("- Download recent media posts with a single click.")
-    print("- Easy navigation and usage for all users.")
+    print("- Easy navigation and usage for all users.\n")
 
 def main():
     print("\n-------------------------------")
@@ -178,7 +179,7 @@ def main():
                 show_details()
 
             elif option == 3:
-                print("Version: 1.1.3")
+                print(f"Version: {__version__}")
 
             elif option == 4:
                 report_bug()
