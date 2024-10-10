@@ -10,10 +10,12 @@ Ingrab is a user-friendly application designed for downloading posts and reels f
 
 ## Installation
 
-To install Ingrab, follow these steps:
+To install and use Ingrab, follow these steps:
 
-1. **Clone the repository:**
+### Install the Package
 
-   ```bash
-   git clone https://github.com/yourusername/Ingrab.git
-   cd Ingrab
+You can install Ingrab directly from PyPI using pip:
+
+```bash
+pip install ingrab
+
