@@ -1,4 +1,4 @@
-import instaloader
+import instaloader  # Import instaloader library directly
 import os
 import shutil
 import time
@@ -22,7 +22,7 @@ def loading_animation():
         print(".", end="")
         sys.stdout.flush()
         time.sleep(0.5)
-    print()  # Move to the next line after the loading
+    print()  # Move to the next line after loading
 
 def is_valid_instagram_url(url):
     """Validates the Instagram profile URL."""
@@ -32,7 +32,12 @@ def is_valid_instagram_url(url):
 def download_posts(profile_url, recent_count=None):
     loader = instaloader.Instaloader()
     profile_name = profile_url.strip('/').split('/')[-1]
-    profile = instaloader.Profile.from_username(loader.context, profile_name)
+    
+    try:
+        profile = instaloader.Profile.from_username(loader.context, profile_name)
+    except Exception as e:
+        print(BOLD + f"Error: {e}" + RESET)
+        return
 
     count = 0
     # Create the target directory if it doesn't exist
@@ -66,7 +71,12 @@ def download_posts(profile_url, recent_count=None):
 def download_videos(profile_url, recent_count=None):
     loader = instaloader.Instaloader()
     profile_name = profile_url.strip('/').split('/')[-1]
-    profile = instaloader.Profile.from_username(loader.context, profile_name)
+
+    try:
+        profile = instaloader.Profile.from_username(loader.context, profile_name)
+    except Exception as e:
+        print(BOLD + f"Error: {e}" + RESET)
+        return
 
     count = 0
     # Create the target directory if it doesn't exist
@@ -102,7 +112,7 @@ def download_all(profile_url, recent_count=None):
     download_videos(profile_url, recent_count)
 
 def report_bug():
-    """Allows the user to report a bug via Gmail."""
+    """Allows the user to report a bug via Gmail.""" 
     bug_details = input(BOLD + "Please describe the bug you encountered: " + RESET)
     subject = "Bug Report from Ingrab"
     body = f"Bug Details: {bug_details}"
@@ -118,7 +128,7 @@ def show_details():
     print("\n" + BOLD + "\033[91m--- What is INGRAB? ---\033[0m" + RESET)  # Title in red
 
     # Project description
-    print("Ingrab is a user-friendly application designed for downloading posts and reels from Instagram user profiles,")
+    print("Ingrab is a user-friendly application designed for downloading posts and reels from Instagram user profiles.")
     print("With a simple interface, users can easily access their favorite media content without hassle.")
 
     # Developer information
@@ -127,27 +137,25 @@ def show_details():
 
     # Additional details
     print("\033[96m" + BOLD + "Version: 1.0.1" + RESET + "\033[0m")  # Version in cyan
-    print("\033[96m" + BOLD + "Features:" + RESET + "\033[0m")
+    print("\033[96m" + BOLD + "Features:" + RESET + "\033[0m") 
     print("- Download posts and reels from Instagram profiles.")
     print("- Download recent media posts with a single click.")
     print("- Easy navigation and usage for all users.")
 
     print("\033[90m" + "------------------------\n" + RESET)  # Separator in dark gray
 
-
 def main():
     print("\n-------------------------------")
     print(RED + BOLD + "✌ --- WELCOME TO INGRAB ---✌" + RESET) 
     print("-------------------------------")
 
-    
     while True:
         print("\n" + GREY + BOLD + "--- Main Menu ---" + RESET)
         print("1 - USE INGRAB")
         print("2 - DETAILS")
         print("3 - VERSION")
         print("4 - REPORT BUG")
-        print((RED + "5 - EXIT"))
+        print((RED + "5 - EXIT") + RESET)
 
         try:
             option = int(input(GREEN + BOLD + "Choose an option: " + RESET))  # Change prompt to green
