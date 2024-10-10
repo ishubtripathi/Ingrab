@@ -108,7 +108,7 @@ def report_bug():
     body = f"Bug Details: {bug_details}"
     
     # Construct the Gmail URL
-    gmail_link = f"https://mail.google.com/mail/?view=cm&fs=1&to=ishubtripathi@gmail.com&su={subject}&body={body}"
+    gmail_link = f"https://mail.google.com/mail/?view=cm&fs=1&to=bugingrab@gmail.com&su={subject}&body={body}"
     
     webbrowser.open(gmail_link) 
     print(BOLD + "Thank you for reporting a bug. \nYour report has been submitted successfully!" + RESET)
