@@ -4,6 +4,7 @@ import shutil
 import time
 import sys
 import re
+import webbrowser  # Import webbrowser module
 
 def loading_animation():
     """Displays a loading animation."""
@@ -91,40 +92,90 @@ def download_all(profile_url, recent_count=None):
     download_posts(profile_url, recent_count)
     download_videos(profile_url, recent_count)
 
-def main():
-    profile_url = input("Enter the Instagram profile URL: ")
+def report_bug():
+    """Allows the user to report a bug via Gmail."""
+    bug_details = input("Please describe the bug you encountered: ")
+    subject = "Bug Report from Ingrab"
+    body = f"Bug Details: {bug_details}"
     
-    # Validate the Instagram URL
-    if not is_valid_instagram_url(profile_url):
-        print("Error: Please enter a valid Instagram profile URL.")
-        return
+    # Construct the Gmail URL
+    gmail_link = f"https://mail.google.com/mail/?view=cm&fs=1&to=ishubtripathi@gmail.com&su={subject}&body={body}"
+    
+    webbrowser.open(gmail_link) 
+    print("Thank you for reporting a bug. \nYour report has been submitted successfully!")
 
-    print("Options:")
-    print("1 - Download all images")
-    print("2 - Download all videos (reels)")
-    print("3 - Download both images and videos (reels)")
-    print("4 - Download the recent 5 images")
-    print("5 - Download the recent 5 videos (reels)")
-    print("6 - Download the recent 5 images and videos (reels)")
 
-    try:
-        option = int(input("Choose an option : "))
-        if option == 1:
-            download_posts(profile_url)
-        elif option == 2:
-            download_videos(profile_url)
-        elif option == 3:
-            download_all(profile_url)
-        elif option == 4:
-            download_posts(profile_url, recent_count=5)
-        elif option == 5:
-            download_videos(profile_url, recent_count=5)
-        elif option == 6:
-            download_all(profile_url, recent_count=5)
-        else:
-            print("Invalid option. Please choose a number between 1 and 6.")
-    except ValueError:
-        print("Error: Please enter a valid number for the option.")
+def main():
+    print("\nWelcome to Ingrab!")
+    
+    while True:
+        print("\nOptions:")
+        print("1 - User Ingrab")
+        print("2 - Help")
+        print("3 - Developer")
+        print("4 - Version")
+        print("5 - Report Bug")
+        print("6 - Exit")
+
+        try:
+            option = int(input("Choose an option : "))
+            
+            if option == 1:
+                profile_url = input("Enter the Instagram profile URL: ")
+                # Validate the Instagram URL
+                if not is_valid_instagram_url(profile_url):
+                    print("Error: Please enter a valid Instagram profile URL.")
+                    continue  # Go back to the main menu
+                
+                print("Options:")
+                print("1 - Download all images")
+                print("2 - Download all videos (reels)")
+                print("3 - Download both images and videos (reels)")
+                print("4 - Download the recent 5 images")
+                print("5 - Download the recent 5 videos (reels)")
+                print("6 - Download the recent 5 images and videos (reels)")
+                
+                try:
+                    download_option = int(input("Choose an option for downloading: "))
+                    if download_option == 1:
+                        download_posts(profile_url)
+                    elif download_option == 2:
+                        download_videos(profile_url)
+                    elif download_option == 3:
+                        download_all(profile_url)
+                    elif download_option == 4:
+                        download_posts(profile_url, recent_count=5)
+                    elif download_option == 5:
+                        download_videos(profile_url, recent_count=5)
+                    elif download_option == 6:
+                        download_all(profile_url, recent_count=5)
+                    else:
+                        print("Invalid option. Please choose a number between 1 and 6.")
+                except ValueError:
+                    print("Error: Please enter a valid number for the option.")
+
+            elif option == 2:
+                print("Help: This application allows you to download images and videos from Instagram profiles.")
+                print("Enter the profile URL and choose the type of media to download.")
+            
+            elif option == 3:
+                print("Developer: Your Name - [Your Contact Information or Website]")
+
+            elif option == 4:
+                print("Version: 1.0.1")
+
+            elif option == 5:
+                report_bug()  # Call the bug reporting function
+
+            elif option == 6:
+                print("Exiting the application.")
+                break  # Exit the loop and the program
+            
+            else:
+                print("Invalid option. Please choose a number between 1 and 6.")
+
+        except ValueError:
+            print("Error: Please enter a valid number for the option.")
 
 if __name__ == "__main__":
     main()
