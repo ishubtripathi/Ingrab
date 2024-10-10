@@ -136,7 +136,10 @@ def show_details():
 
 
 def main():
-    print(RED + BOLD + "\n✌ --- WELCOME TO INGRAB ---✌" + RESET) 
+    print("\n-------------------------------")
+    print(RED + BOLD + "✌ --- WELCOME TO INGRAB ---✌" + RESET) 
+    print("-------------------------------")
+
     
     while True:
         print("\n" + GREY + BOLD + "--- Main Menu ---" + RESET)
@@ -150,7 +153,7 @@ def main():
             option = int(input(GREEN + BOLD + "Choose an option: " + RESET))  # Change prompt to green
             
             if option == 1:
-                profile_url = input(BOLD + "Enter the Instagram profile URL: " + RESET)
+                profile_url = input("Enter the Instagram profile URL: ")
                 # Validate the Instagram URL
                 if not is_valid_instagram_url(profile_url):
                     print(BOLD + "Error: Please enter a valid Instagram profile URL." + RESET)
