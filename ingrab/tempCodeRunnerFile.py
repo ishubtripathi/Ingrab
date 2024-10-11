@@ -6,27 +6,14 @@ import sys
 import re
 import webbrowser  # Import webbrowser module
 
-# def loading_animation():
-#     """Displays a loading animation."""
-#     print("Loading", end="")
-#     for _ in range(3):
-#         print(".", end="")
-#         sys.stdout.flush()
-#         time.sleep(0.5)
-#     print()  
-
-def loading_animation(duration=3):
+def loading_animation():
     """Displays a loading animation."""
-    spinner = ['|', '/', '-', '\\']
-    end_time = time.time() + duration
-
-    print("Loading ", end="", flush=True)
-    while time.time() < end_time:
-        for symbol in spinner:
-            print(f"\rLoading {symbol}", end="", flush=True)
-            time.sleep(0.2) 
-    print("\nInitializing download....") 
-    
+    print("Loading", end="")
+    for _ in range(3):
+        print(".", end="")
+        sys.stdout.flush()
+        time.sleep(0.5)
+    print()  # Move to the next line after loading
 
 def is_valid_instagram_url(url):
     """Validates the Instagram profile URL."""
@@ -162,7 +149,7 @@ def show_details():
     print("DEVELOPER: SHUBH TRIPATHI")
     print("LINKEDIN PROFILE: https://www.linkedin.com/in/ishubtripathi/")
 
-    print("\nVersion: 1.3.0")
+    print("\nVersion: 1.2.6")
     print("\nFeatures:")
     print("- Download posts and reels from Instagram profiles.")
     print("- Download recent media posts with a single click.")
@@ -193,49 +180,45 @@ def main():
                     print("Error: Please enter a valid Instagram profile URL.")
                     continue
                 
-                while True:  # Inner loop for download options
-                    print("\n------ Download Options -------")
-                    print("1 - Download Profile")
-                    print("2 - Download Stories")
-                    print("3 - All posts")
-                    print("4 - All reels")
-                    print("5 - All posts and reels")
-                    print("6 - Recent 5 posts")
-                    print("7 - Recent 5 reels")
-                    print("8 - Recent 5 posts and reels")
-                    print("9 - EXIT") 
-                    print("-------------------------------")
-                    
-                    try:
-                        download_option = int(input("Choose an option: "))
-                        if download_option == 1:
-                            download_profile_picture(profile_url)
-                        elif download_option == 2:
-                            download_stories(profile_url)
-                        elif download_option == 3:
-                            download_posts(profile_url)
-                        elif download_option == 4:
-                            download_videos(profile_url)
-                        elif download_option == 5:
-                            download_all(profile_url)
-                        elif download_option == 6:
-                            download_posts(profile_url, recent_count=5)
-                        elif download_option == 7:
-                            download_videos(profile_url, recent_count=5)
-                        elif download_option == 8:
-                            download_all(profile_url, recent_count=5)
-                        elif download_option == 9:
-                            break  # Exit to main menu
-                        else:
-                            print("Invalid option. Please choose a number between 1 and 9.")
-                    except ValueError:
-                        print("Error: Please enter a valid number for the option.")
+                print("\n----- Download Options -----")
+                print("1 - All posts")
+                print("2 - All reels")
+                print("3 - All posts and reels")
+                print("4 - Recent 5 posts")
+                print("5 - Recent 5 reels")
+                print("6 - Recent 5 posts and reels")
+                print("7 - Download profile picture")
+                print("8 - Download stories")
+                print("-------------------------------")
+                
+                try:
+                    download_option = int(input("Choose an option : "))
+                    if download_option == 1:
+                        download_posts(profile_url)
+                    elif download_option == 2:
+                        download_videos(profile_url)
+                    elif download_option == 3:
+                        download_all(profile_url)
+                    elif download_option == 4:
+                        download_posts(profile_url, recent_count=5)
+                    elif download_option == 5:
+                        download_videos(profile_url, recent_count=5)
+                    elif download_option == 6:
+                        download_all(profile_url, recent_count=5)
+                    elif download_option == 7:
+                        download_profile_picture(profile_url)
+                    elif download_option == 8:
+                        download_stories(profile_url)
+                    else:
+                        print("Invalid option. Please choose a number between 1 and 8.")
+                except ValueError:
+                    print("Error: Please enter a valid number for the option.")
 
             elif option == 2:
                 show_details()
 
             elif option == 3:
-                print("Version: 1.3.0")
+                print("Version: 1.2.6")
 
             elif option == 4:
                 report_bug()

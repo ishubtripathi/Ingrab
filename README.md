@@ -1,89 +1,91 @@
-Here’s a complete `README.md` file for your **Ingrab** project, which includes documentation and a user guide. You can copy and paste this directly into your `README.md` file.
-
-```markdown
 # INGRAB
 
-Ingrab is a user-friendly application designed for downloading posts and reels from Instagram user profiles. With a simple interface, users can easily access their favorite media content without hassle.
+Ingrab is a user-friendly application that allows users to download media content from Instagram profiles, including posts, reels, stories, and profile pictures. By simply providing a valid Instagram profile URL, users can easily access and save their favorite content without needing to log in. The application supports various download options, including recent media and bulk downloads, making it a convenient tool for Instagram users who want to preserve their favorite content.
 
-## Features
+# Installation Process
 
-- Download images and videos (reels) from Instagram profiles.
-- Option to download recent media posts with a single click.
-- Easy navigation and usage for all users.
+To use INGRAB in you local system just navigate Command Pormpt and enter 
 
-## Requirements
+- Create new folder (Optional).
+- Open Command Pormpt.
+- Run this command and press enter.
 
-- Python 3.6 or higher
-- `instaloader` library
+```bash
+pip install ingrab 
+```
+- Now type "ingrab" to use.
 
-You can install the required library using pip:
+
+
+# Prerequisites
+
+* Ensure you have Python (version 3 or later) installed on your system. You can download it from [official python website.](https://www.python.org/download/releases/3.0/)
+
+* Install the pip package manager, which typically comes with Python installations.
+
+# Install Required Package Manually if Facing Error! 
+
+* Although it will automatically download the required package, but still if you face any error regarding the packages, install the required package.
 
 ```bash
 pip install instaloader
 ```
+# Working Process
 
-## Installation
+User Interface:
+- Upon launching Ingrab, users are greeted with a menu offering different options 
+  - 1 - USE INGRAB
+  - 2 - DETAILS
+  - 3 - VERSION
+  - 4 - REPORT BUG
+  - 5 - EXIT
+- After entering USE INGRAB (option - 1)
+  - Users can input a valid Instagram profile URL. The application validates the URL format to ensure it follows Instagram's URL structure.
 
-1. Clone the repository:
+- User have options like:
+  - 1 - Download Profile
+  - 2 - Download Stories
+  - 3 - All posts
+  - 4 - All reels
+  - 5 - All posts and reels
+  - 6 - Recent 5 posts
+  - 7 - Recent 5 reels
+  - 8 - Recent 5 post and reels
+  - 9 - EXIT
 
-   ```bash
-   git clone <repository-url>
-   cd ingrab
-   ```
+- User have to select option according to their prefrence
 
-2. Install the required packages:
+# Error Handling
+- If a private account is detected or an invalid URL is entered, Ingrab displays a user-friendly error message instead of crashing:
+  - **Private Account:** "Ingrab is not able to download content from a private account."
+  - **Invalid URL:** "The URL you entered is invalid; please provide a valid URL."
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Media Download:
+- The application downloads the requested content and saves it locally in a designated folder named after the Instagram profile.
 
-## Usage
+# Key Features
 
-1. Run the application:
+- **Ingrab** allow user to download all Post/Reel within a single click hence Reduce manual effort by 90% to downloading every single Post/Reel manually.
+  - **Multiple Download Options:** Users can choose to download profile pictures, stories, posts, and reels.
+  - **No Login Required:** Works without needing Instagram login credentials.
+  - **Efficient Downloading:** Supports bulk downloads of recent media files.
+  - **Security:** Ingrab is transparent Secure and Reliable.
 
-   ```bash
-   python -m ingrab.downloader
-   ```
+# Conclusion
+Ingrab is a powerful tool for anyone looking to download content from Instagram without the hassle of logging in. Its simplicity and functionality make it an excellent choice for users who want to save their favorite media effortlessly.
 
-2. Follow the on-screen prompts:
+# Copyright
 
-   - Choose an option from the main menu.
-   - Enter the Instagram profile URL you wish to download media from.
-   - Select the type of media you want to download (posts, reels, or both).
-   - Specify if you want to download recent media or all media.
+© 2024 Shubh Tripathi. All rights reserved.
 
-### Menu Options
+**Developer Information:**
+- Name: **Shubh Tripathi**
+- Email: [ishubtripathi@gmail.com](mailto:your_email@example.com)
+- LinkedIn: [Ishubtripathi](https://www.linkedin.com/in/ishubtripathi/)
 
-- **USE INGRAB**: Start downloading media from an Instagram profile.
-- **DETAILS**: Display project details and developer information.
-- **VERSION**: Display the current version of the application.
-- **REPORT BUG**: Submit a bug report via Gmail.
-- **EXIT**: Exit the application.
+This project is licensed under the MIT License. See the LICENSE file for more information.
 
-## Versioning
 
-Ingrab follows [Semantic Versioning](https://semver.org/). The current version is `1.2.6`.
+## Feedback
 
-## Reporting Bugs
-
-If you encounter any issues or bugs, please report them by selecting the "REPORT BUG" option in the main menu. You can also email your bug report directly to [bugingrab@gmail.com](mailto:bugingrab@gmail.com).
-
-## Developer Information
-
-- **DEVELOPER**: Shubh Tripathi
-- **LINKEDIN PROFILE**: [Shubh Tripathi](https://www.linkedin.com/in/ishubtripathi/)
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Acknowledgments
-
-- [Instaloader](https://instaloader.github.io/) for providing the library to download media from Instagram.
-```
-
-### Instructions for Usage:
-1. **Replace `<repository-url>`** with the actual URL of your repository.
-2. **Ensure that any references (like to a license file)** are accurate based on your project structure.
-
-Feel free to adjust any sections or wording to better fit your project's style or specific details!
+If you have any feedback, please reach out to us at bugingrab@gmail.com

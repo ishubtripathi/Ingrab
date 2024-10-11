@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ingrab',
-    version='1.2.7',
+    version='1.3.0',
     packages=find_packages(),
     install_requires=[
         'instaloader',
