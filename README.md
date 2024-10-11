@@ -23,7 +23,7 @@ pip install ingrab
 
 * Install the pip package manager, which typically comes with Python installations.
 
-# Install Required Package Manually if Facing Error! 
+# Install Required Package Manually, if Facing Error! 
 
 * Although it will automatically download the required package, but still if you face any error regarding the packages, install the required package.
 
