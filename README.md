@@ -90,6 +90,7 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 
 If you have any feedback, please reach out to us at bugingrab@gmail.com
 
+## Users
 
+[![Downloads](https://static.pepy.tech/badge/ingrab)](https://pepy.tech/project/ingrab)  as per real-time data retrieved from PyPi statistics.
 
-[![Downloads](https://static.pepy.tech/badge/ingrab)](https://pepy.tech/project/ingrab)
