@@ -89,3 +89,7 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 ## Feedback
 
 If you have any feedback, please reach out to us at bugingrab@gmail.com
+
+
+
+[![Downloads](https://static.pepy.tech/badge/ingrab)](https://pepy.tech/project/ingrab)
