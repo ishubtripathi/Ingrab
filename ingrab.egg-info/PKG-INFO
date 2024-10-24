@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: ingrab
-Version: 1.3.0
+Version: 1.3.3
 Summary: A user-friendly application for downloading posts and reels from Instagram profiles.
 Home-page: https://github.com/ishubtripathi/Ingrab.git
 Author: Shubh Tripathi
@@ -40,7 +40,7 @@ pip install ingrab
 
 * Install the pip package manager, which typically comes with Python installations.
 
-# Install Required Package Manually if Facing Error! 
+# Install Required Package Manually, if Facing Error! 
 
 * Although it will automatically download the required package, but still if you face any error regarding the packages, install the required package.
 
@@ -106,3 +106,7 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 ## Feedback
 
 If you have any feedback, please reach out to us at bugingrab@gmail.com
+
+## Users
+
+Total   [![](https://static.pepy.tech/badge/ingrab)](https://pepy.tech/project/ingrab) 

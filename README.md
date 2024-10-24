@@ -92,6 +92,4 @@ If you have any feedback, please reach out to us at bugingrab@gmail.com
 
 ## Users
 
-[![Downloads](https://static.pepy.tech/badge/ingrab)](https://pepy.tech/project/ingrab)  
-As per real-time data retrieved from PyPi statistics.
-
+Total   [![](https://static.pepy.tech/badge/ingrab)](https://pepy.tech/project/ingrab) 
