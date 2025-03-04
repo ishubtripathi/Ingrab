@@ -155,7 +155,7 @@ def download_videos(profile_name, recent_count=None):
         print(f"{count} reels downloaded successfully.")
 
 def download_highlights(profile_name):
-    """Downloads Instagram highlights of a user."""
+    """Downloads Instagram highlights of a user and categorizes them into separate folders based on their title."""
     loader = instaloader.Instaloader()
 
     try:
@@ -164,8 +164,10 @@ def download_highlights(profile_name):
 
         if highlights:
             for highlight in highlights:
-                loader.download_highlight(highlight, target=f'{profile_name}_highlights')
-            print(f"Highlights of {profile_name} downloaded successfully.")
+                highlight_folder = f"{profile_name}_highlights/{highlight.title}"
+                os.makedirs(highlight_folder, exist_ok=True)
+                loader.download_highlight(highlight, target=highlight_folder)
+                print(f"Highlight '{highlight.title}' of {profile_name} downloaded successfully into folder '{highlight_folder}'.")
         else:
             print(f"No highlights found for {profile_name}.")
     except instaloader.exceptions.ProfileNotExistsException:
@@ -174,6 +176,7 @@ def download_highlights(profile_name):
         print(f"Error: Profile '{profile_name}' is private and not followed.")
     except Exception as e:
         print(f"Unexpected error while downloading highlights: {e}")
+
 
 def download_all(profile_name):
     """Downloads all posts and reels."""
