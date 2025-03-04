@@ -34,24 +34,24 @@ pip install instaloader
 
 User Interface:
 - Upon launching Ingrab, users are greeted with a menu offering different options 
-  - 1 - USE INGRAB
-  - 2 - DETAILS
-  - 3 - VERSION
-  - 4 - REPORT BUG
-  - 5 - EXIT
+  - USE INGRAB
+  - DETAILS
+  - VERSION
+  - REPORT BUG
+  - EXIT
 - After entering USE INGRAB (option - 1)
   - Users can input a valid Instagram profile URL. The application validates the URL format to ensure it follows Instagram's URL structure.
 
 - User have options like:
-  - 1 - Download Profile
-  - 2 - Download Stories
-  - 3 - All posts
-  - 4 - All reels
-  - 5 - All posts and reels
-  - 6 - Recent 5 posts
-  - 7 - Recent 5 reels
-  - 8 - Recent 5 post and reels
-  - 9 - EXIT
+  - Download Profile
+  - Download Stories
+  - All posts
+  - All reels
+  - All posts and reels
+  - Recent 5 posts
+  - Recent 5 reels
+  - Recent 5 post and reels
+  - EXIT
 
 - User have to select option according to their prefrence
 
@@ -67,6 +67,7 @@ User Interface:
 
 - **Ingrab** allow user to download all Post/Reel within a single click hence Reduce manual effort by 90% to downloading every single Post/Reel manually.
   - **Multiple Download Options:** Users can choose to download profile pictures, stories, posts, and reels.
+  - **Highlights Categorization:** Save highlights into separate folders based on their title.
   - **No Login Required:** Works without needing Instagram login credentials.
   - **Efficient Downloading:** Supports bulk downloads of recent media files.
   - **Security:** Ingrab is transparent Secure and Reliable.
