@@ -1,96 +1,516 @@
 # INGRAB
 
-Ingrab is a user-friendly application that allows users to download media content from Instagram profiles, including posts, reels, stories, and profile pictures. By simply providing a valid Instagram profile URL, users can easily access and save their favorite content without needing to log in. The application supports various download options, including recent media and bulk downloads, making it a convenient tool for Instagram users who want to preserve their favorite content.
+Ingrab is a user-friendly application that allows users to download media content from Instagram profiles, including posts, reels, stories, and profile pictures. By simply providing a valid Instagram profile URL or username, users can easily access and save their favorite content. The application supports various download options, including recent media and bulk downloads, making it a convenient tool for Instagram users who want to preserve their favorite content.
+
+<p align="center">
+  <strong>Total Downloads</strong><br>
+  <a href="https://pepy.tech/project/ingrab">
+    <img src="https://static.pepy.tech/badge/ingrab" alt="Total Downloads">
+  </a>
+</p>
+
+<p align="center">
+  Growing community of users downloading Instagram media with Ingrab.
+</p>
+
+---
+
+## Version 1.4.0 Updates
+
+The latest version includes significant improvements to prevent rate limiting errors (401/403) and enhance user experience:
+
+### New Features
+
+- Smart rate limiting with automatic delays between requests (3-8 seconds)
+- Session management with persistent login (saves session to avoid repeated logins)
+- User-friendly error messages that explain HTTP status codes in plain English
+- Loading animation during downloads for better visual feedback
+- Daily usage tracking with visual progress bars
+- Login option for higher download limits (200 downloads/day vs 40 without login)
+
+### Improved Error Handling
+
+- Clear explanations for 401, 403, 429, and other HTTP errors
+- Automatic retry logic with progressive delays when rate limited
+- Cooldown periods to prevent Instagram blocks
+- Help menu explaining all error messages and solutions
+
+### Rate Limit Protection
+
+- Conservative daily limits (40 downloads without login, 200 with login)
+- Human-like random delays between requests
+- Automatic detection of rate limiting with helpful recovery suggestions
+- Daily usage reset at midnight
+
+---
 
 # Installation Process
 
-To use INGRAB in you local system just navigate Command Pormpt and enter 
+To use INGRAB in your local system just navigate Command Prompt and enter:
 
-- Create new folder (Optional).
-- Open Command Pormpt.
-- Run this command and press enter.
+- Create new folder (Optional)
+- Open Command Prompt
+- Run this command and press enter
 
 ```bash
-pip install ingrab 
+pip install ingrab
 ```
-- Now type "ingrab" to use.
 
+## Installation Process
 
+- Ensure you have Python (version 3 or later) installed on your system. You can download it from the [official Python website](https://www.python.org/download/releases/3.0/).
 
-# Prerequisites
+- Install the pip package manager, which typically comes with Python installations.
 
-* Ensure you have Python (version 3 or later) installed on your system. You can download it from [official python website.](https://www.python.org/download/releases/3.0/)
+---
 
-* Install the pip package manager, which typically comes with Python installations.
+## Install Required Package Manually, if Facing Error!
 
-# Install Required Package Manually, if Facing Error! 
-
-* Although it will automatically download the required package, but still if you face any error regarding the packages, install the required package.
+- Although it will automatically download the required package, but still if you face any error regarding the packages, install the required package.
 
 ```bash
 pip install instaloader
 ```
+
+---
+
 # Working Process
 
-User Interface:
-- Upon launching Ingrab, users are greeted with a menu offering different options 
-  - USE INGRAB
-  - DETAILS
-  - VERSION
-  - REPORT BUG
-  - EXIT
-- After entering USE INGRAB (option - 1)
-  - Users can input a valid Instagram profile URL. The application validates the URL format to ensure it follows Instagram's URL structure.
+## User Interface
 
-- User have options like:
-  - Download Profile
-  - Download Stories
-  - All posts
-  - All reels
-  - All posts and reels
-  - Recent 5 posts
-  - Recent 5 reels
-  - Recent 5 post and reels
-  - EXIT
+Upon launching **Ingrab**, users are greeted with a menu offering different options:
 
-- User have to select option according to their prefrence
+### Main Menu
+
+```text
+1. Download Media
+2. Check Daily Usage
+3. Login / Logout
+4. Help & Error Explanations
+5. Report Bug
+6. Exit
+```
+
+---
+
+## Download Media Workflow
+
+After entering **Download Media (Option 1)**:
+
+Users can input a valid Instagram profile URL or username.
+
+### Supported Input Formats
+
+```txt
+username
+https://instagram.com/username
+https://www.instagram.com/username
+```
+
+The application validates the input format before proceeding.
+
+### Download Options
+
+Users can choose what type of media to download:
+
+- **Posts** *(Images only)*
+- **Reels** *(Videos only)*
+- **Profile Picture**
+
+### Download Quantity
+
+Users can:
+
+- Specify the number of items to download *(Recommended: 1–20)*
+- Choose to **Download All Media**
+
+---
+
+## Automatic Features
+
+The application automatically:
+
+- Checks daily usage limits before downloading
+- Adds random delays between requests *(3–8 seconds)*
+- Displays loading animation during downloads
+- Shows remaining downloads for the day
+
+---
+
+## Additional Features
+
+Users can also:
+
+### Login to Instagram
+
+Login enables higher daily download limits.
+
+| Mode | Daily Limit |
+|------|--------------|
+| Guest User | 50 Downloads / Day |
+| Logged-in User | 200 Downloads / Day |
+
+---
+
+### Check Daily Usage
+
+Users can:
+
+- View daily download statistics
+- Monitor remaining downloads
+- See visual progress bars for usage tracking
+
+Example:
+
+```txt
+Daily Usage Progress
+
+██████████░░░░░░░░░░ 50%
+Used: 25 / 50 Downloads
+Remaining: 25
+```
+
+---
+
+### Help & Error Explanations
+
+Users can access a dedicated help section that explains:
+
+- Common errors
+- Why they happen
+- How to fix them
+
+---
+
+### Session Management
+
+Users can:
+
+- Clear session data
+- Logout from Instagram
+- Reset saved login credentials
+
+---
 
 # Error Handling
-- If a private account is detected or an invalid URL is entered, Ingrab displays a user-friendly error message instead of crashing:
-  - **Private Account:** "Ingrab is not able to download content from a private account."
-  - **Invalid URL:** "The URL you entered is invalid; please provide a valid URL."
 
-# Media Download:
-- The application downloads the requested content and saves it locally in a designated folder named after the Instagram profile.
+Ingrab provides **user-friendly error messages** explaining:
+
+- What went wrong
+- Why it happened
+- How to fix it
+
+---
+
+## 401 / 403 Errors (Forbidden / Unauthorized)
+
+### Message
+
+> Instagram has temporarily blocked your requests
+
+### Possible Causes
+
+- Too many requests
+- Suspicious activity
+- Access restrictions
+
+### Solution
+
+- Wait **30–60 minutes**
+- Login to Instagram
+- Download fewer items at once
+
+---
+
+## 429 Error (Too Many Requests)
+
+### Message
+
+> You've made too many requests too quickly
+
+### Why It Happens
+
+Instagram rate limits excessive requests.
+
+### Solution
+
+- Wait **15–30 minutes**
+- Try again later
+- The application automatically adds delays
+
+---
+
+## 404 Error (Not Found)
+
+### Message
+
+> Profile does not exist on Instagram
+
+### Solution
+
+- Verify username spelling
+- Ensure the profile exists
+- Check if the account is public
+
+---
+
+## Private Account
+
+### Message
+
+> Profile is private
+
+### Solution
+
+- Login to Instagram
+- Ensure you follow the private account
+
+---
+
+## Invalid URL
+
+### Message
+
+> Invalid username or URL
+
+### Supported Formats
+
+```txt
+username
+https://instagram.com/username
+```
+
+### Solution
+
+Use a valid Instagram username or URL format.
+
+---
+
+## Rate Limiting Protection
+
+Ingrab includes automatic protection mechanisms:
+
+- Cooldown periods after repeated failures
+- Random request delays *(3–8 seconds)*
+- Automatic error detection
+- Clear instructions on wait times
+
+---
+
+## Example Download Flow
+
+```txt
+1. Launch Ingrab
+2. Select "Download Media"
+3. Enter username or URL
+4. Choose media type
+5. Select number of downloads
+6. Usage limit checked
+7. Download begins with delays
+8. Progress displayed
+9. Remaining downloads shown
+```
+
+---
+
+# Media Download
+
+The application downloads the requested content and saves it locally in a designated folder named after the Instagram profile.
+
+## Download Process Includes
+
+- Automatic rate limiting to prevent Instagram blocks
+- Progress indicators showing download status
+- Daily usage tracking to stay within limits
+- Support for both images and videos
+- Organized folder structure for each profile
+
+---
 
 # Key Features
 
-- **Ingrab** allow user to download all Post/Reel within a single click hence Reduce manual effort by 90% to downloading every single Post/Reel manually.
-  - **Multiple Download Options:** Users can choose to download profile pictures, stories, posts, and reels.
-  - **Highlights Categorization:** Save highlights into separate folders based on their title.
-  - **No Login Required:** Works without needing Instagram login credentials.
-  - **Efficient Downloading:** Supports bulk downloads of recent media files.
-  - **Security:** Ingrab is transparent Secure and Reliable.
+Ingrab allows users to download posts and reels while automatically handling rate limits, reducing manual effort by **90%** compared to downloading each item manually.
 
-# Conclusion
-Ingrab is a powerful tool for anyone looking to download content from Instagram without the hassle of logging in. Its simplicity and functionality make it an excellent choice for users who want to save their favorite media effortlessly.
+## Multiple Download Options
+
+Users can choose to download:
+
+- Profile Pictures
+- Stories
+- Highlights
+- Posts *(Images only)*
+- Reels *(Videos only)*
+
+---
+
+## Highlights Categorization
+
+Save highlights into separate folders based on their title for better organization.
+
+---
+
+## Optional Login
+
+No login is required to use Ingrab.
+
+However, logging in provides:
+
+| Mode | Daily Download Limit |
+|------|----------------------|
+| Guest User | 40 Downloads / Day |
+| Logged-in User | 200 Downloads / Day |
+
+### Additional Benefits of Login
+
+- Access private profiles you follow
+- Higher daily limits
+- Better session continuity
+
+---
+
+## Smart Rate Limiting
+
+Ingrab automatically adds delays between requests to mimic human behavior and reduce the risk of Instagram blocks.
+
+### Features
+
+- Random delays *(3–8 seconds)*
+- Human-like request pacing
+- Automatic cooldown handling
+- Safer downloading experience
+
+---
+
+## Session Management
+
+Your login session is saved locally so you don't need to login every time.
+
+### Benefits
+
+- Persistent login session
+- Faster access
+- Reduced repeated authentication
+
+---
+
+## Daily Usage Tracking
+
+Monitor your downloads with visual progress indicators.
+
+### Example
+
+```txt
+Daily Usage Progress
+
+████████████░░░░░░░░ 60%
+Used: 24 / 40 Downloads
+Remaining: 16
+```
+
+Features include:
+
+- Visual progress bars
+- Daily usage statistics
+- Remaining download count
+
+---
+
+## User-Friendly Error Messages
+
+Instead of technical jargon, Ingrab provides:
+
+- Clear explanations of HTTP errors
+- Actionable solutions
+- Helpful troubleshooting guidance
+
+Example:
+
+```txt
+Error: Too many requests detected.
+
+Solution:
+Wait 15–30 minutes and try again.
+```
+
+---
+
+## Loading Animation
+
+Visual feedback during downloads helps users understand that the tool is working.
+
+### Benefits
+
+- Better user experience
+- Real-time activity feedback
+- Reduced confusion during waiting
+
+---
+
+## Efficient Downloading
+
+Supports bulk downloading of recent media files with automatic limit enforcement.
+
+### Features
+
+- Bulk downloads
+- Recent media fetching
+- Automatic rate limit handling
+- Faster workflow
+
+---
+
+## Security
+
+Ingrab is designed to be transparent, secure, and reliable.
+
+### Security Measures
+
+- Login credentials are **never stored permanently**
+- Only a **session cookie** is saved locally
+- Secure and minimal data handling
+
+---
 
 # Copyright
 
-© 2024 Shubh Tripathi. All rights reserved.
+© 2024–2025 Shubh Tripathi. All rights reserved.
 
-**Developer Information:**
+## Developer Information
+
 - Name: **Shubh Tripathi**
-- Email: [ishubtripathi@gmail.com](mailto:your_email@example.com)
+- Email: [ishubtripathi@gmail.com](mailto:ishubtripathi@gmail.com)
 - LinkedIn: [Ishubtripathi](https://www.linkedin.com/in/ishubtripathi/)
 
-This project is licensed under the MIT License. See the LICENSE file for more information.
+---
 
+## Proprietary License
 
-## Feedback
+This software is the exclusive property of Shubh Tripathi. All rights reserved.
 
-If you have any feedback, please reach out to us at bugingrab@gmail.com
+**Unauthorized use, modification, distribution, or reproduction of this software is strictly prohibited.**
 
-## Users
+Permission is granted to download and use the software for personal, non-commercial purposes only. Any other use requires explicit written permission from the copyright holder.
 
-Total   [![](https://static.pepy.tech/badge/ingrab)](https://pepy.tech/project/ingrab) 
+### You may NOT:
+
+- Modify, copy, or distribute the code without permission
+- Use the code for commercial purposes
+- Remove any copyright or proprietary notices
+- Create derivative works based on this software
+
+### You MAY:
+
+- Download and use the software for personal, non-commercial use
+- Report bugs and provide feedback
+
+This software is provided "AS IS" without warranty of any kind.
+
+---
+
+# Feedback
+
+If you have any feedback, please reach out at:
+
+```txt
+bugingrab@gmail.com
+```
